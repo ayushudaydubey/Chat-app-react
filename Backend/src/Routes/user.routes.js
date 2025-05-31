@@ -8,7 +8,7 @@ import {
   getMeController
 } from '../Controllers/user.controller.js';
 import { getMessagesController, messageController } from '../Controllers/message.controller.js';
-// import { aiChatController } from '../Services/ai.service.js';
+import { aiChatController } from '../Services/ai.service.js';
 
 const routes = express.Router();
 
@@ -19,7 +19,7 @@ routes.post("/logout", verifyTokenMiddleware, logoutUserController);
 
 // Protected routes
 routes.post("/chat", verifyTokenMiddleware, messageController);
-// routes.post("/askSomething", aiChatController)
+routes.post("/askSomething", aiChatController)
 
 routes.get("/chat/:senderId/:receiverId", verifyTokenMiddleware, getMessagesController);
 
